@@ -20,20 +20,20 @@
     "ts-node": "^9.1.1"
   },
   "jest": {
-	  	"transform": {
-            "^.+\\.ts$": "ts-jest"
-        },
-        "testRegex": "\\.test\\.ts$",
-        "moduleFileExtensions": [
-            "ts",
-            "tsx",
-            "js",
-            "json"
-        ],
-        "globals": {
-            "ts-jest": {
-                "diagnostics": true
-            }
-        }
+    "transform": {
+      "^.+\\.ts$": "ts-jest"
+    },
+    "testRegex": "\\.test\\.ts$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json"
+    ],
+    "globals": {
+      "ts-jest": {
+        "diagnostics": true
+      }
+    }
   }
 }
