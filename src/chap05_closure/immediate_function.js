@@ -31,7 +31,6 @@ document.addEventListener(
   false)
 );
 
-
 $ = function () {
   alert("not jQuery");
 };
@@ -44,11 +43,23 @@ $ = function () {
 })(jQuery);
 
 // 짧은 이름을 이용해 코드 가독성을 유지할 수 있다.
-(function(v) {
-    Object.extend(v {
-        href: v._getAttr,
-        src: v._getAttr,
-        type: v._getAttr,
-        // ...
-    })
+(function (v) {
+  Object.extend(v, {
+    href: v._getAttr,
+    src: v._getAttr,
+    type: v._getAttr,
+    // ...
+  });
 })(Element.attributeTranslations.read.values);
+
+var div = document.getElementsByTagName("div");
+for (var i = 0; i < div.length; i++)
+  (function (n) {
+    div[n].addEventListener(
+      "click",
+      function () {
+        alert("div #" + n + " was clicked");
+      },
+      false
+    );
+  })(i);
