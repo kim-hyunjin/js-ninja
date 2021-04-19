@@ -53,6 +53,7 @@ $ = function () {
 })(Element.attributeTranslations.read.values);
 
 var div = document.getElementsByTagName("div");
+// 즉시실행 함수를 for 문의 본문으로 사용하면(블록을 즉시실행함수로 교체), for문 내에서 각 단께가 지닌 유효범위 내에 변수 i가 새로 정의된다.
 for (var i = 0; i < div.length; i++)
   (function (n) {
     div[n].addEventListener(
