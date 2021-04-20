@@ -42,3 +42,28 @@ console.log(ninja2.constructor);
 console.log(ninja2.swingSword);
 console.log(ninja2.constructor.prototype.swingSword);
 console.log(ninja2.constructor.prototype.jump);
+
+console.log(typeof ninja2 == "object");
+console.log(ninja2 instanceof Ninja);
+console.log(ninja2.constructor == Ninja);
+
+// constructor 프로퍼티는 역으로 원본 생성자를 참조하기 때문에, 이를 이용해 새 객체 인스턴스를 만들 수 있다.
+var ninja3 = new ninja2.constructor();
+console.log(ninja3 instanceof Ninja);
+console.log(ninja2 !== ninja3);
+
+// 상속과 프로토타입 체인
+function Person() {}
+Person.prototype.dance = function() {};
+
+Ninja.prototype = {dance: Person.prototype.dance};
+var ninja4 = new Ninja();
+console.log("ninja4 instanceof Ninja", ninja4 instanceof Ninja);
+console.log("ninja4 instanceof Person", ninja4 instanceof Person); // false
+console.log("ninja4 instanceof Object", ninja4 instanceof Object);
+
+Ninja.prototype = new Person();
+var ninja4 = new Ninja();
+console.log("ninja4 instanceof Ninja", ninja4 instanceof Ninja);
+console.log("ninja4 instanceof Person", ninja4 instanceof Person); // true
+console.log("ninja4 instanceof Object", ninja4 instanceof Object);
